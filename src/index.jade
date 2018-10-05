@@ -1,15 +1,17 @@
 extends _layouts/base
 
-include _modules/link/link
+include _modules/atoms/countdown/countdown
+include _modules/atoms/header/header
 
 block content
   .container
-    .yeogurt-info
-      h1 Welcome to Yeogurt!
-      p.
-        Take a look at the
-        #[+link({text: 'documentation'})(href='https://github.com/larsonjj/generator-yeogurt#yeogurt-generator---')]
-        and start mixing up something awesome.
-      p
-        img.logo(src="images/yeogurt-swirl.png", width="75px")
-  code.version v2.0.1
+    +header()
+    h1(style="text-align: center; font-size: 5em; margin-top: 0;") SINGLES DAY 11.11
+    +countdown()
+    img(src="../images/center.jpg" style="max-width: 80%; margin: 50px auto 0; display: block")
+    h1(style="text-align: center; margin-top: 70px")
+      | From 1st November to 31st December,
+      br
+      spend minimum of $20,000 o n your
+      br
+      | Standard Chartered Credit Card for a chance to win.

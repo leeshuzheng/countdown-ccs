@@ -6,7 +6,12 @@
 import $ from 'jquery';
 import Link from '../_modules/link/link';
 
+import Countdown from '../_modules/atoms/countdown/countdown';
+
 $(() => {
-  new Link(); // Activate Link modules logic
-  console.log('Welcome to Yeogurt!');
+  window.end_date = new Date('11/11/2018');
+
+  console.log(`project end date is ${window.end_date}`);
+
+  new Countdown(window.end_date);
 });

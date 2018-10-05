@@ -1,0 +1,13 @@
+// header styles
+.header {
+
+  &__logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    img {
+      max-width: 300px;
+    }
+  }
+}

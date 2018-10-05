@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "dependencies": {
     "jquery": "~3.1.1",
+    "jquery-countdown": "^2.2.0",
     "normalize.css": "~5.0.0"
   },
   "devDependencies": {
