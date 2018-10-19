@@ -1,6 +1,8 @@
 // Normalize Styles
 @import 'node_modules/normalize.css/normalize';
 
+@import 'variables';
+
 // Import Modules
 @import '../_modules/atoms/countdown/countdown';
 @import '../_modules/atoms/header/header';
@@ -23,8 +25,13 @@ body {
   top: 0;
   overflow: hidden;
   align-items: center;
+  color: $primaryColor;
+  background-image: url('../images/background.png');
 
-    padding: 0 2.5em;
+  background-position-x: 0px;
+  background-position-y: 0px;
+
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 .bottom {
