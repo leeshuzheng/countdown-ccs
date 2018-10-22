@@ -6,8 +6,6 @@ import 'jquery-countdown';
 export default class Countdown {
   constructor(date) {
 
-    console.log(date);
-
     let countdown = $('.countdown-timer'),
       end_date = date;
 
@@ -16,8 +14,7 @@ export default class Countdown {
       if (!event.elapsed) {
         let day = event.strftime('%D'),
         hours = event.strftime('%H'),
-        mins = event.strftime('%M'),
-        secs = event.strftime('%S');
+        mins = event.strftime('%M');
 
         $(this).html(
           `<div class="clock">
@@ -36,11 +33,6 @@ export default class Countdown {
               <span class="title">Mins</span>
             </div>
 
-            <div class="box">
-              ${separate_number(secs)}
-              <span class="title">Secs</span>
-            </div>
-
           </div>`
         );
       } else {
@@ -52,11 +44,13 @@ export default class Countdown {
     function separate_number(number) {
       // two digit numbers
       let digits = number.toString().split(''),
-      html = '';
+      html = '<div>';
 
       digits.forEach(function(digit) {
         html += `<span class="num">${digit}</span>`;
       });
+
+      html += '</div>';
 
       return html;
     };

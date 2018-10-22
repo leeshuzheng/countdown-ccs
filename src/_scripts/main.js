@@ -15,13 +15,26 @@ $(() => {
 
   // handle background
   let body = $('body'),
-  xPos = 0;
+  xPos = 0,
+  endX = -2184 + 1080,
+  goForward = true,
+  interval = 10; // in ms
 
   let backgroundInterval = setInterval(function() {
 
-    xPos --;
+    if (xPos == endX) {
+      goForward = false;
+    } else if (xPos > -1) {
+      goForward = true;
+    }
+
+    if (goForward) {
+      xPos --;
+    } else {
+      xPos ++;
+    }
 
     body.css('background-position-x', `${xPos}px`);
 
-  }, 150); // every 10ms
+  }, interval);
 });

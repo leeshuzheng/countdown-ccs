@@ -20,9 +20,7 @@
 body {
   width: 1080px;
   height: 1920px;
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: relative;
   overflow: hidden;
   align-items: center;
   color: $primaryColor;
@@ -32,12 +30,111 @@ body {
   background-position-y: 0px;
 
   font-family: 'Helvetica Neue', sans-serif;
+
+  border: 1px solid black;
+
+  padding: 70px 60px;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__arrow {
+    position: relative;
+    top: 147px;
+
+    img {
+      max-width: 90px;
+    }
+  }
+
+  &__content {
+    padding-left: 30px;
+  }
+
+  .main-title {
+    text-align: center;
+    font-size: 78px;
+
+    margin-top: 80px;
+  }
+
+  h2 {
+    text-align: left;
+    margin-top: 60px;
+    font-size: 27pt;
+  }
+
+  h3 {
+    font-size: 18pt;
+    color: $darkGrey;
+  }
 }
 
 .bottom {
   display: flex;
   align-items: center;
 
+  flex-direction: column;
+
   justify-content: space-between;
-  margin-top: 105px;
+
+  position: absolute;
+  width: calc(1080px - 120px);
+  bottom: 70px;
+
+  &__conditions {
+
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    img {
+      max-width: 190px;
+    }
+
+    // first image
+    .card1 {
+    }
+
+    // second image
+    .card2 {
+
+    }
+
+    span {
+      color: $darkGrey;
+      font-size: 16pt;
+    }
+  }
+
+  &__text {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    width: 100%;
+
+    .slogan {
+      color: #309c2f;
+      font-size: 3em;
+      font-weight: normal;
+    }
+
+    .url {
+      font-size: 2.8em;
+      color: $darkGrey;
+    }
+
+    p {
+      margin-top: .7em;
+      margin-bottom: 0;
+    }
+  }
+
 }
