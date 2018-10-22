@@ -1,6 +1,7 @@
 // Normalize Styles
 @import 'node_modules/normalize.css/normalize';
 
+@import 'fonts';
 @import 'variables';
 
 // Import Modules
@@ -21,7 +22,7 @@ body {
   width: 1080px;
   height: 1920px;
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   align-items: center;
   color: $primaryColor;
   background-image: url('../images/background.png');
@@ -29,9 +30,7 @@ body {
   background-position-x: 0px;
   background-position-y: 0px;
 
-  font-family: 'Helvetica Neue', sans-serif;
-
-  border: 1px solid black;
+  font-family: $primaryFont, sans-serif;
 
   padding: 70px 60px;
 }
@@ -55,21 +54,61 @@ body {
   }
 
   .main-title {
-    text-align: center;
+    text-align: left;
     font-size: 78px;
 
     margin-top: 80px;
+    letter-spacing: .04em;
   }
 
   h2 {
     text-align: left;
-    margin-top: 60px;
+    margin-top: 55px;
     font-size: 27pt;
+
+    font-family: $secondaryFont, 'sans-serif';
   }
 
   h3 {
     font-size: 18pt;
     color: $darkGrey;
+
+    font-family: $secondaryFont, 'sans-serif';
+  }
+}
+
+.coin {
+  position: absolute;
+  z-index: 1;
+
+  &:nth-of-type(1) {
+    top: 80%;
+    left: 10%;
+  }
+
+  &:nth-of-type(2) {
+    top: 75%;
+    left: 20%;
+  }
+
+  &:nth-of-type(3) {
+    top: 70%;
+    left: 30%;
+  }
+
+  &:nth-of-type(4) {
+    top: 72%;
+    left: 50%;
+  }
+
+  &:nth-of-type(5) {
+    top: 60%;
+    left: 70%;
+  }
+
+  &:nth-of-type(6) {
+    top: 65%;
+    left: 85%;
   }
 }
 
@@ -93,23 +132,25 @@ body {
     justify-content: space-between;
 
     width: 100%;
+    padding-bottom: 30px;
 
     img {
-      max-width: 190px;
-    }
+      width: 220px;
+      height: 132.77px;
 
-    // first image
-    .card1 {
-    }
-
-    // second image
-    .card2 {
+      &:last-of-type {
+        margin-left: 18px;
+      }
 
     }
 
     span {
       color: $darkGrey;
-      font-size: 16pt;
+      font-size: 13pt;
+      line-height: 1.3;
+      padding-left: 30px;
+
+      font-family: $secondaryFont, 'sans-serif';
     }
   }
 
@@ -120,21 +161,7 @@ body {
 
     width: 100%;
 
-    .slogan {
-      color: #309c2f;
-      font-size: 3em;
-      font-weight: normal;
-    }
-
-    .url {
-      font-size: 2.8em;
-      color: $darkGrey;
-    }
-
-    p {
-      margin-top: .7em;
-      margin-bottom: 0;
-    }
+    padding: 1em 0 0;
   }
 
 }
