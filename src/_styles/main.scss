@@ -7,6 +7,7 @@
 // Import Modules
 @import '../_modules/atoms/countdown/countdown';
 @import '../_modules/atoms/header/header';
+@import '../_modules/atoms/coins/coins';
 
 // Box sizing partial styles:
 // Apply a natural box layout model to all elements
@@ -18,11 +19,14 @@
   box-sizing: border-box;
 }
 
-body {
+body,
+html {
   width: 1080px;
   height: 1920px;
-  position: relative;
-  // overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
   align-items: center;
   color: $primaryColor;
   background-image: url('../images/background.png');
@@ -74,41 +78,6 @@ body {
     color: $darkGrey;
 
     font-family: $secondaryFont, 'sans-serif';
-  }
-}
-
-.coin {
-  position: absolute;
-  z-index: 1;
-
-  &:nth-of-type(1) {
-    top: 80%;
-    left: 10%;
-  }
-
-  &:nth-of-type(2) {
-    top: 75%;
-    left: 20%;
-  }
-
-  &:nth-of-type(3) {
-    top: 70%;
-    left: 30%;
-  }
-
-  &:nth-of-type(4) {
-    top: 72%;
-    left: 50%;
-  }
-
-  &:nth-of-type(5) {
-    top: 60%;
-    left: 70%;
-  }
-
-  &:nth-of-type(6) {
-    top: 65%;
-    left: 85%;
   }
 }
 

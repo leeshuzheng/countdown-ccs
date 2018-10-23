@@ -1,0 +1,9 @@
+mixin coins(spec)
+  - spec = spec || {}
+  - spec.__class = spec.__class || ''
+
+  each coin in spec.coins
+    .coin(style="width: #{coin.dimensions}; height: #{coin.dimensions}; top: #{coin.top}; left: #{coin.left}; transform: rotate(#{coin.rotate})")
+      .coin__images(style="animation-duration: #{coin.animationDuration}")
+        img(class="coin__front" style="transform: rotate(-#{coin.rotate})" src="../images/coin.png")
+        img(class="coin__back" style="transform: rotate(-#{coin.rotate})" src="../images/coin.png")
