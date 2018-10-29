@@ -17,15 +17,22 @@ $(() => {
 
   // handle background
   let body = $('body'),
+  presentsBg = $('.presents'),
   xPos = 0,
   endX = -2184 + 1080,
   interval = 10, // in ms
-  wait = 120000;
+  wait = 120000,
+  toShowItems = $('.toShow'),
+  bottomItems = $('.bottom'),
+  allCoins = $('.coin'),
+  coinsBottomLimit = 1765,
+  coinsDuration = [ 10000, 16000, 12500, 12000, 14500, 19000, 9000, 15000];
 
   if (window.prototype) {
     interval = .5;
     wait = 15000;
   }
+
 
   let backgroundInterval = setInterval(handleBackground, interval);
 
@@ -35,13 +42,37 @@ $(() => {
 
       clearInterval(backgroundInterval);
 
-      console.log(`time now is ${new Date()}`);
+      allCoins.addClass('show');
+
+      allCoins.each(function(idx, each) {
+
+        let $each = $(each),
+        duration = coinsDuration[idx];
+
+        $each.animate({
+          top: coinsBottomLimit
+        }, duration, 'linear');
+
+      });
+
+      let longestDuration = Math.max.apply(null, coinsDuration);
+
+      setTimeout(function() {
+        toShowItems.addClass('show');
+      }, longestDuration + 500);
+
+      setTimeout(function() {
+        bottomItems.addClass('show');
+      }, longestDuration + 1200);
+
 
       setTimeout(function() {
 
-        console.log(`time end is ${new Date()}`);
         xPos = 0;
         backgroundInterval = setInterval(handleBackground, interval);
+
+        toShowItems.removeClass('show');
+        bottomItems.removeClass('show');
 
       }, wait);
 

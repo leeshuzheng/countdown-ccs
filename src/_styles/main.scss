@@ -29,14 +29,41 @@ html {
   overflow: hidden;
   align-items: center;
   color: $primaryColor;
-  background-image: url('../images/background.png');
 
-  background-position-x: 0px;
-  background-position-y: 0px;
+  border: 1px solid black;
+
+  background-image: url('../images/background.png');
 
   font-family: $primaryFont, sans-serif;
 
   padding: 70px 60px;
+}
+
+.presents {
+  width: 1080px;
+  height: 920px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  align-items: center;
+  color: $primaryColor;
+
+  font-family: $primaryFont, sans-serif;
+
+  background-image: url('../images/presents.png');
+  background-position-x: 0px;
+  background-position-y: 1020px;
+}
+
+.toShow {
+  opacity: 0;
+  transition: opacity .9s;
+
+  &.show {
+    opacity: 1;
+    transition: opacity .9s;
+  }
 }
 
 .main-content {
@@ -59,10 +86,11 @@ html {
 
   .main-title {
     text-align: left;
-    font-size: 78px;
+    font-size: 87px;
 
     margin-top: 80px;
-    letter-spacing: .04em;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
   }
 
   h2 {
@@ -92,6 +120,14 @@ html {
   position: absolute;
   width: calc(1080px - 120px);
   bottom: 70px;
+
+  opacity: 0;
+  transition: opacity .9s;
+
+  &.show {
+    opacity: 1;
+    transition: opacity .9s;
+  }
 
   &__conditions {
 

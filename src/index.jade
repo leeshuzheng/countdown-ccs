@@ -5,85 +5,80 @@ include _modules/atoms/header/header
 include _modules/atoms/coins/coins
 
 block content
+  .presents
   .container
 
     +coins({
       coins: [
         {
           dimensions: '88px',
-          top: '53%',
+          top: '45%',
           left: '2.5%',
           rotate: '-55deg',
           animationDuration: '6s'
         },
         {
           dimensions: '100px',
-          top: '46%',
           left: '6%',
           rotate: '-15deg',
           animationDuration: '13s'
         },
         {
           dimensions: '160px',
-          top: '48%',
           left: '23%',
           rotate: '-22deg',
           animationDuration: '10s'
         },
         {
           dimensions: '90px',
-          top: '45.5%',
           left: '47%',
           rotate: '5deg',
           animationDuration: '6s'
         },
         {
           dimensions: '102px',
-          top: '53%',
           left: '62%',
           rotate: '2deg',
           animationDuration: '8s'
         },
         {
           dimensions: '65px',
-          top: '47.5%',
           left: '66%',
           rotate: '45deg',
           animationDuration: '12s'
         },
         {
           dimensions: '65px',
-          top: '54.5%',
           left: '88%',
           rotate: '45deg',
           animationDuration: '9s'
         },
         {
           dimensions: '130px',
-          top: '44.5%',
           left: '88%',
           rotate: '45deg',
           animationDuration: '8s'
         }
-    ]})
+      ]
+    })
 
     +header()
     .main-content
-      .main-content__arrow
+      .main-content__arrow.toShow
         img(src="../images/angle-right.png")
       .main-content__content
         h1.main-title
           | SINGLES’ DAY - 11.11
         +countdown()
 
-        h2
+        h2.toShow
           | From 1 November to 31 December 2018,
           br
           | shop your way to a cashback reward of up to
           br
           | S$20,000* with Standard Chartered Credit Cards.
 
-        h3
+        h3.toShow
           | SMS XMAS to 77222 from your registered mobile number with the bank
           br
           | to participate in the promotion. Visit sc.com/sg/xmas to find out more.
