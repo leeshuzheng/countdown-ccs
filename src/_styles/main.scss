@@ -30,8 +30,6 @@ html {
   align-items: center;
   color: $primaryColor;
 
-  border: 1px solid black;
-
   background-image: url('../images/background.png');
 
   font-family: $primaryFont, sans-serif;
@@ -52,8 +50,11 @@ html {
   font-family: $primaryFont, sans-serif;
 
   background-image: url('../images/presents.png');
+  background-repeat: repeat;
   background-position-x: 0px;
-  background-position-y: 1020px;
+  background-position-y: 920px;
+
+  z-index: 1;
 }
 
 .toShow {
@@ -120,6 +121,8 @@ html {
   position: absolute;
   width: calc(1080px - 120px);
   bottom: 70px;
+
+  z-index: 2;
 
   opacity: 0;
   transition: opacity .9s;

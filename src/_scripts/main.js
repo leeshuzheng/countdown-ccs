@@ -80,7 +80,7 @@ $(() => {
       xPos --;
     }
 
-    body.css('background-position-x', `${xPos}px`);
+    presentsBg.css('background-position-x', `${xPos}px`);
 
   }
 });
