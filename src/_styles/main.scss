@@ -31,6 +31,7 @@ html {
   color: $primaryColor;
 
   background-image: url('../images/background.png');
+  background-repeat: no-repeat;
 
   font-family: $primaryFont, sans-serif;
 
@@ -59,7 +60,6 @@ html {
 
 .toShow {
   opacity: 0;
-  transition: opacity .9s;
 
   &.show {
     opacity: 1;

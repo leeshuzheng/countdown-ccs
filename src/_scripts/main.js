@@ -26,11 +26,12 @@ $(() => {
   bottomItems = $('.bottom'),
   allCoins = $('.coin'),
   coinsBottomLimit = 1765,
+  coinStart = 865,
   coinsDuration = [ 10000, 16000, 12500, 12000, 14500, 19000, 9000, 15000];
 
   if (window.prototype) {
     interval = .5;
-    wait = 15000;
+    wait = 35000;
   }
 
 
@@ -42,37 +43,59 @@ $(() => {
 
       clearInterval(backgroundInterval);
 
-      allCoins.addClass('show');
 
       allCoins.each(function(idx, each) {
 
-        let $each = $(each),
-        duration = coinsDuration[idx];
+        function loopCoinAnimation() {
 
-        $each.animate({
-          top: coinsBottomLimit
-        }, duration, 'linear');
+          let $each = $(each),
+          duration = coinsDuration[idx];
+
+          $each.addClass('show');
+
+          $each.css({'top': coinStart});
+
+          $each.animate({
+            top: coinsBottomLimit
+          }, duration, 'linear', function() {
+
+            $each.removeClass('show');
+
+            loopCoinAnimation();
+          });
+        }
+
+        loopCoinAnimation();
 
       });
 
-      let longestDuration = Math.max.apply(null, coinsDuration);
+      // let longestDuration = Math.max.apply(null, coinsDuration);
 
       setTimeout(function() {
         toShowItems.addClass('show');
-      }, longestDuration + 500);
+      }, 3000);
 
       setTimeout(function() {
         bottomItems.addClass('show');
-      }, longestDuration + 1200);
+      }, 4000);
 
 
       setTimeout(function() {
+
+        toShowItems.removeClass('show');
+        bottomItems.removeClass('show');
+        allCoins.removeClass('show').css({'top': coinStart});
+
+        allCoins.each(function(idx, each) {
+
+          $(each).stop();
+
+        });
 
         xPos = 0;
         backgroundInterval = setInterval(handleBackground, interval);
 
-        toShowItems.removeClass('show');
-        bottomItems.removeClass('show');
+
 
       }, wait);
 
