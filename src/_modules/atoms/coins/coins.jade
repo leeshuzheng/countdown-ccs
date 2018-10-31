@@ -4,5 +4,5 @@ mixin coins(spec)
 
   each coin in spec.coins
     .coin(style="width: #{coin.dimensions}; height: #{coin.dimensions}; left: #{coin.left}; transform: rotate(#{coin.rotate})")
-      .coin__images(style="animation-duration: #{coin.animationDuration}")
-        img(class="coin__front" style="transform: rotate(-#{coin.rotate})" src="../images/coin.png")
+      .coin__images
+        img(class="coin__front" style="transform: rotate(-#{coin.rotate})" src="../images/#{coin.coinType}.png")

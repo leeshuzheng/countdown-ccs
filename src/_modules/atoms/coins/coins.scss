@@ -1,24 +1,15 @@
 // coins styles
 
-$rotate: 15deg;
-
-// @keyframes rotateCoin {
-//   to {
-//     transform: rotateY(360deg);
-//   }
-// }
-
 .coin {
   perspective: 300px;
   position: absolute;
+  top: 865px;
 
   opacity: 0;
 
-  top: 865px;
-
   &.show {
     opacity: 1;
-    transition: opacity .9s;
+    transition: opacity .9s 1s;
   }
 
   &__images {
@@ -26,11 +17,6 @@ $rotate: 15deg;
     width: 100%;
     height: 100%;
     transition: transform 1s;
-    // transform-style: preserve-3d;
-
-    // animation-timing-function: linear;
-    // animation-name: rotateCoin;
-    // animation-iteration-count: infinite;
   }
 
   img {

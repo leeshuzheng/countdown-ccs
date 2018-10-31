@@ -9,41 +9,54 @@ import Link from '../_modules/link/link';
 import Countdown from '../_modules/atoms/countdown/countdown';
 
 $(() => {
-  window.prototype = false;
+  window.prototype = true;
   window.end_date = new Date('11/11/2018');
+
+  if (window.prototype == true) {
+    window.end_date = new Date('11/01/2018');
+  };
 
   new Countdown(window.end_date);
 
 
   // handle background
-  let body = $('body'),
-  presentsBg = $('.presents'),
-  xPos = 0,
-  endX = -2184 + 1080,
+  let presentsBg = $('.presents'),
   interval = 10, // in ms
   wait = 120000,
   toShowItems = $('.toShow'),
   bottomItems = $('.bottom'),
   allCoins = $('.coin'),
-  coinsBottomLimit = 1765,
+  coinsBottomLimit = 1305,
   coinStart = 865,
-  coinsDuration = [ 10000, 16000, 12500, 12000, 14500, 19000, 9000, 15000];
+  timer = 0,
+  xPos = 0,
+  coinsDuration = [10000, 16000, 12500, 12000, 14500, 19000, 9000, 15000];
 
   if (window.prototype) {
-    interval = .5;
-    wait = 35000;
+    wait = 120000;
   }
 
+  setInterval(function() {
+    timer++;
+  }, 1000);
 
-  let backgroundInterval = setInterval(handleBackground, interval);
+  setInterval(function() {
+    xPos--;
+    presentsBg.css({
+      'background-position-x': xPos
+    });
+  }, 10);
 
-  function handleBackground() {
 
-    if (xPos == endX) {
+  let elementsInterval = setInterval(handleElements, interval);
 
-      clearInterval(backgroundInterval);
+  function handleElements() {
 
+    if (timer == 1) {
+      toShowItems.addClass('show');
+    };
 
+    if (timer == 3) {
       allCoins.each(function(idx, each) {
 
         function loopCoinAnimation() {
@@ -51,13 +64,14 @@ $(() => {
           let $each = $(each),
           duration = coinsDuration[idx];
 
-          $each.addClass('show');
+          duration *= .7;
 
+          $each.addClass('show');
           $each.css({'top': coinStart});
 
           $each.animate({
             top: coinsBottomLimit
-          }, duration, 'linear', function() {
+          }, (duration), 'linear', function() {
 
             $each.removeClass('show');
 
@@ -68,19 +82,25 @@ $(() => {
         loopCoinAnimation();
 
       });
+    }
 
-      // let longestDuration = Math.max.apply(null, coinsDuration);
+
+
+    if (timer == 5) {
 
       setTimeout(function() {
         toShowItems.addClass('show');
-      }, 3000);
+      }, 400);
 
       setTimeout(function() {
         bottomItems.addClass('show');
-      }, 4000);
+      }, 800);
 
+      clearInterval(elementsInterval);
 
       setTimeout(function() {
+
+        console.log(`calling the timeout, restart after ${wait/1000} seconds`);
 
         toShowItems.removeClass('show');
         bottomItems.removeClass('show');
@@ -92,18 +112,15 @@ $(() => {
 
         });
 
-        xPos = 0;
-        backgroundInterval = setInterval(handleBackground, interval);
+        timer = 0;
 
-
+        elementsInterval = setInterval(handleElements, interval);
 
       }, wait);
 
-    } else {
-      xPos --;
     }
 
-    presentsBg.css('background-position-x', `${xPos}px`);
+
 
   }
 });
