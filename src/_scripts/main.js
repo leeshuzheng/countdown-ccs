@@ -57,6 +57,7 @@ $(() => {
     };
 
     if (timer == 3) {
+
       allCoins.each(function(idx, each) {
 
         function loopCoinAnimation() {
@@ -66,12 +67,14 @@ $(() => {
 
           duration *= .7;
 
+          console.log(`duration is ${duration}`);
+
           $each.addClass('show');
           $each.css({'top': coinStart});
 
           $each.animate({
             top: coinsBottomLimit
-          }, (duration), 'linear', function() {
+          }, duration, 'linear', function() {
 
             $each.removeClass('show');
 
