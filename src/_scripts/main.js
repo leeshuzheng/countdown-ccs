@@ -10,11 +10,8 @@ import Countdown from '../_modules/atoms/countdown/countdown';
 
 $(() => {
   window.prototype = true;
-  window.end_date = new Date('11/11/2018');
+  window.end_date = new Date('12/12/2018');
 
-  if (window.prototype == true) {
-    window.end_date = new Date('11/01/2018');
-  };
 
   new Countdown(window.end_date);
 
